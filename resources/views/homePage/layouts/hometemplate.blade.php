@@ -162,7 +162,7 @@
                                                                                    
                                         </a>
                                     @else
-                                          <a href="{{ route('auth.login') }}">
+                                          <a href="{{ route('login') }}">
                                           <i class="fa fa-user ml-5" aria-hidden="true">Login</i>
                                        
                                           </a>
