@@ -1,11 +1,10 @@
 @extends('homepage.layouts.hometemplate')
 @section('userprofile')
 
-<h2>Welcome Mr. {{  Auth::user()->name  }}</h2>
 <div class="container">
-    <div class="row">
-        <div class="col-lg-3">
-            <div class="box_main" style=" border: 2px solid rgb(218, 179, 6)" >
+    <div class="row py-5">
+        <div class="col-lg-2">
+            <div class="box_main py-5" style=" border: 2px solid rgb(218, 179, 6)" >
                 <ul>
                     <li><a href="{{ route('userdashboard') }}">Dashboard</a></li>
                     <li><a href="{{ route('pendingorders') }}">Pending Orders</a></li>
@@ -24,7 +23,7 @@
             </div>
 
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-10">
 
             <div class="box_main">
                 @yield('dashboard')
@@ -34,6 +33,7 @@
             </div>
 
         </div>
+        
     </div>
 </div>
 

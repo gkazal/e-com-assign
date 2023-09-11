@@ -60,7 +60,14 @@ class ClientController extends Controller
     {
         $allCategories = Category::all();
         $allProducts = Products::all();
-        return view('homepage.layouts.userdashboard',  compact('allCategories','allProducts'));
+
+        $userid = Auth::id();
+
+        // sudu matro pending order gulo k show korbe specific user ar jonno..
+        $approved_orders = Order::where('status', 'approved')->latest()->get();
+
+
+        return view('homepage.layouts.userdashboard',  compact('allCategories','allProducts','approved_orders'));
     }
     
     

@@ -70,7 +70,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="logo"><a href="index.html"><img src="{{ asset('home/images/logo.png') }}"></a>
+                        <div class="logo"><a href=""><img src="{{ asset('home/images/logo.png') }}"></a>
                         </div>
                     </div>
                 </div>
@@ -134,28 +134,10 @@
                         </div>
                     </div>
                     <div class="header_box">
-                        <div class="lang_box ">
-                            <a href="#" title="Language" class="nav-link" data-toggle="dropdown"
-                                aria-expanded="true">
-                                <img src="{{ asset('home/images/flag-uk.png') }}" alt="flag" class="mr-2 "
-                                    title="United Kingdom"> English <i class="fa fa-angle-down ml-2"
-                                    aria-hidden="true"></i>
-                            </a>
-                            <div class="dropdown-menu ">
-                                <a href="#" class="dropdown-item">
-                                    <img src="{{ asset('home/images/flag-france.png') }}" class="mr-2"
-                                        alt="flag">
-                                    French
-                                </a>
-                            </div>
-                        </div>
+                        
                         <div class="login_menu">
                             <ul>
-                                <li><a href="#">
-                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                        <span class="padding_10">Cart</span></a>
-                                </li>
-
+                              
 
                                 <li>
                                     @if (Auth::check())
@@ -180,69 +162,19 @@
                                                                                    
                                         </a>
                                     @else
-                                          <a href="{{ route('login') }}">
+                                          <a href="{{ route('auth.login') }}">
                                           <i class="fa fa-user ml-5" aria-hidden="true">Login</i>
                                        
                                           </a>
                                     @endif
 
-                                       {{-- @if (Auth::check() && Auth::user()->user_type == 'user')
-                                             <form method="POST" action="{{ route('logout') }}">
-                                                   @csrf
-                                                   <button class="dropdown-item" type="submit">
-                                                      <i class="bx bx-power-off me-2"></i>
-                                                      <span class="align-middle">Log Out</span>
-                                                   </button>
-                                             </form>
-                                       @endif --}}
-
+                                    
                                 </li>
 
                                 
 
 
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <div class="d-flex">
-                                                <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar avatar-online">
-                                                        <img src="{{ asset('dashboard/assets/img/avatars/1.png') }}"
-                                                            alt class="w-px-40 h-auto rounded-circle" />
-                                                    </div>
-                                                </div>
-                                                {{-- check user or admin --}}
-                                                @if (Auth::check() && Auth::user()->user_type == 'user')
-                                                    <div class="flex-grow-1">
-                                                        <h6>Hello, {{ Auth::user()->name }}</h6>
-                                                        <p class="text-muted">Your are
-                                                            {{ Auth::user()->user_type }}
-                                                        </p>
-                                                    </div>
-                                                @endif
-
-
-                                            </div>
-                                        </a>
-                                    </li>
-
-
-                                    <li>
-
-                                        @if (Auth::check() && Auth::user()->user_type == 'admin')
-                                            <form method="POST" action="{{ route('logout') }}">
-                                                @csrf
-                                                <button class="dropdown-item" type="submit">
-                                                    <i class="bx bx-power-off me-2"></i>
-                                                    <span class="align-middle">Log Out</span>
-                                                </button>
-                                            </form>
-                                        @else
-                                            @csrf
-                                            <a class="dropdown-item " href="{{ route('login') }}">LogIn</a>
-                                        @endif
-                                    </li>
-                                </ul>
+                                
                             </ul>
                         </div>
                     </div>
@@ -258,146 +190,9 @@
 
     {{-- start common part --}}
 
-    {{-- <div class="fashion_section">
-        <div id="main_slider" class="carousel slide" data-ride="carousel">
-           <div class="carousel-inner">
-              <div class="carousel-item active">
-                 <div class="container">
-                    <h1 class="fashion_taital">Man & Woman Fashion</h1>
-                    <div class="fashion_section_2">
-                       <div class="row">
-                          <div class="col-lg-4 col-sm-4">
-                             <div class="box_main">
-                                <h4 class="shirt_text">Man T -shirt</h4>
-                                <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                <div class="tshirt_img"><img src="{{ asset('home/images/tshirt-img.png') }}"></div>
-                                <div class="btn_main">
-                                   <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                   <div class="seemore_bt"><a href="#">See More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                          <div class="col-lg-4 col-sm-4">
-                             <div class="box_main">
-                                <h4 class="shirt_text">Man -shirt</h4>
-                                <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                <div class="tshirt_img"><img src="{{ asset('home/images/dress-shirt-img.png') }}"></div>
-                                <div class="btn_main">
-                                   <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                   <div class="seemore_bt"><a href="#">See More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                          <div class="col-lg-4 col-sm-4">
-                             <div class="box_main">
-                                <h4 class="shirt_text">Woman Scart</h4>
-                                <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                <div class="tshirt_img"><img src="{{ asset('home/images/women-clothes-img.png') }}"></div>
-                                <div class="btn_main">
-                                   <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                   <div class="seemore_bt"><a href="#">See More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-              <div class="carousel-item">
-                 <div class="container">
-                    <h1 class="fashion_taital">Man & Woman Fashion</h1>
-                    <div class="fashion_section_2">
-                       <div class="row">
-                          <div class="col-lg-4 col-sm-4">
-                             <div class="box_main">
-                                <h4 class="shirt_text">Man T -shirt</h4>
-                                <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                <div class="tshirt_img"><img src="{{ asset('home/images/tshirt-img.png') }}"></div>
-                                <div class="btn_main">
-                                   <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                   <div class="seemore_bt"><a href="#">See More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                          <div class="col-lg-4 col-sm-4">
-                             <div class="box_main">
-                                <h4 class="shirt_text">Man -shirt</h4>
-                                <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                <div class="tshirt_img"><img src="{{ asset('home/images/dress-shirt-img.png') }}"></div>
-                                <div class="btn_main">
-                                   <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                   <div class="seemore_bt"><a href="#">See More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                          <div class="col-lg-4 col-sm-4">
-                             <div class="box_main">
-                                <h4 class="shirt_text">Woman Scart</h4>
-                                <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                <div class="tshirt_img"><img src="{{ asset('home/images/women-clothes-img.png') }}"></div>
-                                <div class="btn_main">
-                                   <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                   <div class="seemore_bt"><a href="#">See More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-              <div class="carousel-item">
-                 <div class="container">
-                    <h1 class="fashion_taital">Man & Woman Fashion</h1>
-                    <div class="fashion_section_2">
-                       <div class="row">
-                          <div class="col-lg-4 col-sm-4">
-                             <div class="box_main">
-                                <h4 class="shirt_text">Man T -shirt</h4>
-                                <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                <div class="tshirt_img"><img src="{{ asset('home/images/tshirt-img.png') }}"></div>
-                                <div class="btn_main">
-                                   <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                   <div class="seemore_bt"><a href="#">See More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                          <div class="col-lg-4 col-sm-4">
-                             <div class="box_main">
-                                <h4 class="shirt_text">Man -shirt</h4>
-                                <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                <div class="tshirt_img"><img src="{{ asset('home/images/dress-shirt-img.png') }}"></div>
-                                <div class="btn_main">
-                                   <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                   <div class="seemore_bt"><a href="#">See More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                          <div class="col-lg-4 col-sm-4">
-                             <div class="box_main">
-                                <h4 class="shirt_text">Woman Scart</h4>
-                                <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                <div class="tshirt_img"><img src="{{ asset('home/images/women-clothes-img.png') }}"></div>
-                                <div class="btn_main">
-                                   <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                   <div class="seemore_bt"><a href="#">See More</a></div>
-                                </div>
-                             </div>
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-           </div>
-           <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
-           <i class="fa fa-angle-left"></i>
-           </a>
-           <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
-           <i class="fa fa-angle-right"></i>
-           </a>
-        </div>
-     </div> --}}
+    
 
-    <div class=" " style="margin-top: 200px;">
+    <div class="" style="margin-top: 200px;">
         @yield('allproducts')
         @yield('allcategory')
         @yield('singleproduct')

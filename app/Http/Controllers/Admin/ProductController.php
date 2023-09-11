@@ -106,10 +106,9 @@ class ProductController extends Controller
             // }
 
              if ($request->file('image')) {
-                    $folder    = 'user';
                     $image     = $request->file('image');
                     $imageName = time() . '.' . $image->getClientOriginalName();
-                    $image->move(public_path('/images/products' . $folder), $imageName);
+                    $image->move(public_path('/images/products'), $imageName);
                 }
     
 
